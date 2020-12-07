@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Switch, Redirect } from "react-router-dom";
-import { ContentRoute } from "../../layout";
+import { ContentRoute } from "../../../layout";
 import Login from "./Login";
 import Registration from "./Registration";
 
