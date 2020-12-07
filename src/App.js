@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import { Routes } from "../app/Routes";
 
-function App() {
+import { LayoutSplashScreen, MaterialThemeProvider } from "./layout/_core_metronic/layout";
+
+export default function App({ store, persistor, basename }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      /* Provide Redux store */
+      <Provider store={store}>
+
+        <PersistGate persistor={persistor} loading={<LayoutSplashScreen />}>
+
+          <React.Suspense fallback={<LayoutSplashScreen />}>
+
+            <BrowserRouter basename={basename}>
+
+              <MaterialThemeProvider>
+
+                  <Routes />
+
+              </MaterialThemeProvider>
+            </BrowserRouter>
+          </React.Suspense>
+        </PersistGate>
+      </Provider>
   );
 }
-
-export default App;
