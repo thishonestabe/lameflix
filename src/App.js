@@ -4,11 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Routes } from "../app/Routes";
 
-import { LayoutSplashScreen, MaterialThemeProvider } from "./layout/_core_metronic/layout";
+import { LayoutSplashScreen, MaterialThemeProvider } from "./layout";
 
 export default function App({ store, persistor, basename }) {
   return (
-      /* Provide Redux store */
+
       <Provider store={store}>
 
         <PersistGate persistor={persistor} loading={<LayoutSplashScreen />}>

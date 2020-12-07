@@ -2,7 +2,7 @@ import React, {createContext, useContext, useState, useEffect} from "react";
 
 const LameflixSplashScreenContext = createContext();
 
-export function MetronicSplashScreenProvider({ children }) {
+export function LameflixSplashScreenProvider({ children }) {
     const [count, setCount] = useState(0);
     let visible = count > 0;
 
@@ -39,7 +39,7 @@ export function MetronicSplashScreenProvider({ children }) {
 }
 
 export function LayoutSplashScreen({ visible = true }) {
-    // Everything are ready - remove splashscreen
+
     const setCount = useContext(LameflixSplashScreenContext);
 
     useEffect(() => {
